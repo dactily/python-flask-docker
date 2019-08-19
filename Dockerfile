@@ -2,6 +2,9 @@ FROM python:3.6
 LABEL maintainer="lorenz.vanthillo@gmail.com"
 COPY . /app
 WORKDIR /app
+RUN ps axuw
+RUN env
+RUN ping google.com -c 1
 RUN pip install -r requirements.txt
 EXPOSE 8080
 ENTRYPOINT ["python"]

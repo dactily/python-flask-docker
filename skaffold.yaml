@@ -1,10 +1,11 @@
-apiVersion: skaffold/v1beta2
+apiVersion: skaffold/v1beta10
 kind: Config
 build:
   artifacts:
   - image: dactily/python-flask-docker
     context: .
-    docker: {}
+    docker:
+      network: host
   tagPolicy:
     envTemplate:
       template: '{{.DOCKER_REGISTRY}}/{{.IMAGE_NAME}}:{{.VERSION}}'
